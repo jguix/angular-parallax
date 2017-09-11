@@ -56,7 +56,9 @@ directive('duParallax',
           if(!inited) {
             inited = true;
             angular.element($window).on('load', function init() {
-              //Trigger the onScroll until position stabilizes. Don't know why this is needed.
+              //Trigger the onScroll until position stabilizes.
+              //This is needed because the currentY may change during page load,
+              //because of the use of relative positioning or components that recompute their height
               //TODO: Think of more elegant solution.
               var i = 0;
               var maxIterations = 10;
